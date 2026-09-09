@@ -2,6 +2,22 @@
 
 A standalone React + Vite portfolio prepared for Vercel. It includes all source code, images, the resume PDF, SEO metadata, sitemap, robots file, and pre-rendered route generation.
 
+## Source of truth
+
+Portfolio content and design are edited in `artifacts/portfolio/` in the Replit
+workspace. This standalone repository is its deployment mirror. From the
+workspace root:
+
+```bash
+pnpm portfolio:sync
+pnpm portfolio:publish
+```
+
+The sync mirrors `src`, `public`, `index.html`, `components.json`, and
+`prerender.mjs`. It intentionally preserves this repository's standalone
+package manifest, public npm settings, TypeScript/Vite configuration, Vercel
+configuration, README, and deployment check.
+
 ## Automatic Vercel deployment
 
 The `main` branch is connected to the existing `arjun-iyer-portfolio` Vercel
