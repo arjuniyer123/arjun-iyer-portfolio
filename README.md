@@ -2,17 +2,16 @@
 
 A standalone React + Vite portfolio prepared for Vercel. It includes all source code, images, the resume PDF, SEO metadata, sitemap, robots file, and pre-rendered route generation.
 
-## Deploy with Vercel
+## Automatic Vercel deployment
 
-1. Unzip this archive.
-2. Push the extracted folder to a new GitHub, GitLab, or Bitbucket repository.
-3. In Vercel, choose **Add New → Project** and import that repository.
-4. Vercel reads `vercel.json` automatically. Confirm:
-   - Build command: `pnpm run build`
-   - Output directory: `dist/public`
-5. Deploy.
-6. In the Vercel project, open **Settings → Domains** and add `arjuniyer.com` and optionally `www.arjuniyer.com`.
-7. Update the DNS records at your domain registrar using the exact values Vercel provides.
+The `main` branch is connected to the existing `arjun-iyer-portfolio` Vercel
+project. Every push to `main` creates a production deployment for
+`arjuniyer.com` and `www.arjuniyer.com`.
+
+Vercel reads `vercel.json` automatically:
+
+- Build command: `npm run build`
+- Output directory: `dist/public`
 
 No environment variables or backend services are required.
 
