@@ -6,6 +6,12 @@ Prepared for import; **not yet fully migrated**. The owner must create/import
 the Claude Design project, review it, and hand one approved change to Claude
 Code. Keep production `main` unchanged until the preview is approved.
 
+**Update:** the owner provided the Claude Design project link and its design
+system ZIP export. Source/asset review is recorded in `claude-export-review.md`.
+The import is evidenced by that export; rendered parity and the Claude Code
+release path still need verification. The steps below remain the checklist
+for completing the handoff, not a claim that the cutover has happened.
+
 ## Protected baseline
 
 - Repository: https://github.com/arjuniyer123/arjun-iyer-portfolio
