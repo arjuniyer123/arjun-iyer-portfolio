@@ -4,24 +4,15 @@ A standalone React + Vite portfolio prepared for Vercel. It includes all source 
 
 ## Source of truth
 
-**Claude Design migration is being prepared on `claude-design-handoff`.**
-Read `docs/claude-design-handoff.md` for the import steps, Claude Code handoff,
-release checks, and rollback procedure. Read `DESIGN.md` for the existing
-visual system and `CLAUDE.md` for coding guidance.
+This repository is the production source for the portfolio. Claude Design
+is the authority for approved visual decisions, and Claude Code implements
+them here through a branch, a pull request, and a reviewed Vercel preview.
+Read `CLAUDE.md` for the release process, `DESIGN.md` for the visual system,
+and `docs/claude-design-handoff.md` for the migration record and rollback.
 
-Portfolio content and design are edited in `artifacts/portfolio/` in the Replit
-workspace. This standalone repository is its deployment mirror. From the
-workspace root:
-
-```bash
-pnpm portfolio:sync
-pnpm portfolio:publish
-```
-
-The sync mirrors `src`, `public`, `index.html`, `components.json`, and
-`prerender.mjs`. It intentionally preserves this repository's standalone
-package manifest, public npm settings, TypeScript/Vite configuration, Vercel
-configuration, README, and deployment check.
+The former Replit workspace and its `portfolio:sync` / `portfolio:publish`
+commands are retired. Do not use them; their snapshot is out of date and can
+overwrite this repository.
 
 ## Automatic Vercel deployment
 
