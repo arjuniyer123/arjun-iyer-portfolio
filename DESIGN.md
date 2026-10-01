@@ -16,13 +16,15 @@ for a redesign.
 
 ## Visual direction
 
-- Warm paper background, dark ink text, coral accents, and signal-blue details.
+- Warm paper background, dark ink text, cobalt-blue accents (#2b59c3, tint #d3def4),
+  and signal-blue details. Coral (#f05a47) survives only as the hero wireframe dot.
 - Space Grotesk display type, IBM Plex Sans body type, and IBM Plex Mono labels.
 - Bold two-line name in the hero and a geometric app-interface wireframe.
 - Thin borders, generous spacing, a restrained grid, and compact navigation.
 - “My Work” project section and “Read More” links.
 - Preserve the current case-study image counters, such as “01 / 05”.
-- Do not restore removed homepage labels or project-name index numbers.
+- Do not restore removed homepage labels, project-name index numbers, or the
+  role/year meta line above project names (removed by owner-approved change).
 - Keep the AI initials mark as the favicon and home control.
 
 Use exact values from the CSS files, not approximate colors from screenshots.
