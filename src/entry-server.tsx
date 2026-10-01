@@ -18,7 +18,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // Re-export route metadata so prerender.mjs can import it from the SSR
 // bundle — one source of truth, no duplication between TS and plain JS.
-export { routeMeta } from './route-meta';
+export { routeMeta, getCanonicalUrl } from './route-meta';
 
 import Home from './pages/home';
 import About from './pages/about';

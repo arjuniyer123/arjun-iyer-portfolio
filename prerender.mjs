@@ -16,7 +16,8 @@
  *    dist/public/index.html template.
  * 5. Stamp per-route <head> metadata into each file.
  * 6. Write to dist/public/<route>/index.html.
- * 7. Verify every generated file contains route-specific content.
+ * 7. Verify every generated file contains route-specific content and a
+ *    canonical URL / og:url pointing at its own route.
  *
  * Usage
  * -----
@@ -49,10 +50,11 @@ function escapeAttr(str) {
 /**
  * Inject per-route <head> metadata and SSR-rendered body into a template.
  */
-function buildRouteHtml(template, meta, renderedBody) {
+function buildRouteHtml(template, meta, canonicalUrl, renderedBody) {
   const title = escapeAttr(meta.title);
   const desc  = escapeAttr(meta.description);
   const og    = escapeAttr(meta.ogType);
+  const url   = escapeAttr(canonicalUrl);
 
   return template
     .replace(/<title>[^<]*<\/title>/,
@@ -65,6 +67,10 @@ function buildRouteHtml(template, meta, renderedBody) {
       `<meta property="og:description" content="${desc}" />`)
     .replace(/<meta\s+property="og:type"[^>]*\/>/,
       `<meta property="og:type" content="${og}" />`)
+    .replace(/<link\s+rel="canonical"[^>]*\/>/,
+      `<link rel="canonical" href="${url}" />`)
+    .replace(/<meta\s+property="og:url"[^>]*\/>/,
+      `<meta property="og:url" content="${url}" />`)
     .replace(/<meta\s+name="twitter:title"[^>]*\/>/,
       `<meta name="twitter:title" content="${title}" />`)
     .replace(/<meta\s+name="twitter:description"[^>]*\/>/,
@@ -120,10 +126,10 @@ console.log('[prerender] SSR bundle built.');
 const ssrBundle = await import(
   /* @vite-ignore */ path.join(serverDir, 'entry-server.mjs')
 );
-const { render, routeMeta } = ssrBundle;
+const { render, routeMeta, getCanonicalUrl } = ssrBundle;
 
-if (!render || !routeMeta) {
-  console.error('[prerender] ERROR: SSR bundle did not export render() or routeMeta.');
+if (!render || !routeMeta || !getCanonicalUrl) {
+  console.error('[prerender] ERROR: SSR bundle did not export render(), routeMeta, or getCanonicalUrl().');
   process.exit(1);
 }
 
@@ -159,7 +165,7 @@ for (const [routePath, meta] of Object.entries(routeMeta)) {
     failedRoutes.push(routePath);
   }
 
-  const html = buildRouteHtml(template, meta, renderedBody);
+  const html = buildRouteHtml(template, meta, getCanonicalUrl(routePath), renderedBody);
 
   if (routePath === '/') {
     fs.writeFileSync(indexPath, html, 'utf8');
@@ -177,7 +183,8 @@ for (const [routePath, meta] of Object.entries(routeMeta)) {
 // ---------------------------------------------------------------------------
 // Step 5 — Verify generated files contain route-specific content
 //
-// Each file must contain its escaped title text and at least one <h1>.
+// Each file must contain its escaped title text, its own canonical URL,
+// and a non-empty render.
 // This catches cases where the SSR render silently produced empty output.
 // ---------------------------------------------------------------------------
 
@@ -199,12 +206,21 @@ for (const [routePath, meta] of Object.entries(routeMeta)) {
     verifyErrors.push(`${routePath}: <title> tag not found or incorrect.`);
   }
 
-  // Verification 2: <div id="root"> is not empty
+  // Verification 2: canonical link and og:url point at this route
+  const escapedUrl = escapeAttr(getCanonicalUrl(routePath));
+  if (!html.includes(`<link rel="canonical" href="${escapedUrl}" />`)) {
+    verifyErrors.push(`${routePath}: canonical link not found or incorrect.`);
+  }
+  if (!html.includes(`<meta property="og:url" content="${escapedUrl}" />`)) {
+    verifyErrors.push(`${routePath}: og:url meta not found or incorrect.`);
+  }
+
+  // Verification 3: <div id="root"> is not empty
   if (html.includes('<div id="root"></div>')) {
     verifyErrors.push(`${routePath}: <div id="root"> is empty — SSR content was not injected.`);
   }
 
-  // Verification 3: the root div contains substantial content (>= 500 chars
+  // Verification 4: the root div contains substantial content (>= 500 chars
   // between the opening and closing tags, indicating a real render occurred).
   const rootMatch = html.match(/<div id="root">([\s\S]*?)<\/body>/);
   const rootContent = rootMatch ? rootMatch[1] : '';

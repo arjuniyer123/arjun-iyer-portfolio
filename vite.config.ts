@@ -2,7 +2,7 @@ import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
-import { getRouteMeta } from './src/route-meta';
+import { getCanonicalUrl, getRouteMeta } from './src/route-meta';
 
 function routeMetaPlugin() {
   return {
@@ -17,12 +17,15 @@ function routeMetaPlugin() {
       const title = escape(meta.title);
       const description = escape(meta.description);
       const ogType = escape(meta.ogType);
+      const canonical = escape(getCanonicalUrl(ctx.path ?? '/'));
       return html
         .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
         .replace(/<meta\s+name="description"[^>]*\/>/, `<meta name="description" content="${description}" />`)
         .replace(/<meta\s+property="og:title"[^>]*\/>/, `<meta property="og:title" content="${title}" />`)
         .replace(/<meta\s+property="og:description"[^>]*\/>/, `<meta property="og:description" content="${description}" />`)
         .replace(/<meta\s+property="og:type"[^>]*\/>/, `<meta property="og:type" content="${ogType}" />`)
+        .replace(/<link\s+rel="canonical"[^>]*\/>/, `<link rel="canonical" href="${canonical}" />`)
+        .replace(/<meta\s+property="og:url"[^>]*\/>/, `<meta property="og:url" content="${canonical}" />`)
         .replace(/<meta\s+name="twitter:title"[^>]*\/>/, `<meta name="twitter:title" content="${title}" />`)
         .replace(/<meta\s+name="twitter:description"[^>]*\/>/, `<meta name="twitter:description" content="${description}" />`);
     },
