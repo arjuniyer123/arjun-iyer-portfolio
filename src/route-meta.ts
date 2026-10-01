@@ -71,7 +71,22 @@ export const routeMeta: Record<string, RouteMeta> = {
  * Falls back to the root entry when no match is found.
  */
 export function getRouteMeta(rawPath: string): RouteMeta {
-  const normalized =
-    rawPath.replace(/\?.*$/, '').replace(/\/$/, '') || '/';
-  return routeMeta[normalized] ?? routeMeta['/'];
+  return routeMeta[normalizePath(rawPath)] ?? routeMeta['/'];
+}
+
+export const SITE_URL = 'https://arjuniyer.com';
+
+/**
+ * Return the absolute canonical URL for a given URL path, in the form Vercel
+ * serves it (cleanUrls, no trailing slash) and the sitemap lists it.
+ * Falls back to the homepage when no match is found, mirroring getRouteMeta.
+ */
+export function getCanonicalUrl(rawPath: string): string {
+  const normalized = normalizePath(rawPath);
+  if (normalized === '/' || !routeMeta[normalized]) return `${SITE_URL}/`;
+  return `${SITE_URL}${normalized}`;
+}
+
+function normalizePath(rawPath: string): string {
+  return rawPath.replace(/\?.*$/, '').replace(/\/$/, '') || '/';
 }
