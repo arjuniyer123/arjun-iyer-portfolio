@@ -52,20 +52,18 @@ and a click-through UI kit. It is not the standalone Vite production app.
   bundle. It has no package manifest, Vite build, SEO/prerender pipeline,
   sitemap, or robots file. Do not replace the production repository with it.
 
-## Remaining acceptance gates
+## Acceptance gates (all met 2026-10-01)
 
-1. Owner reviews rendered desktop/mobile baseline and resolves the homepage
-   label difference.
-2. Owner uses Claude Design's handoff to Claude Code for this existing GitHub
-   repository. Documentation of `/design-sync` is not proof it has run.
-3. Claude Code authors the harmless verification marker on a branch and
-   opens a pull request. Preserve the production framework and SEO pipeline.
-4. Review the exact branch's Vercel preview.
-5. Disable the old Replit publisher before merging Claude-authored changes.
-6. Merge the owner-approved PR and verify the exact production commit and
-   live marker on arjuniyer.com.
+1. Homepage label difference resolved: the owner approved removing the
+   role/year labels, released in PR #2.
+2. Claude Code worked from this existing GitHub repository and preserved the
+   production framework and SEO pipeline.
+3. Claude Code authored the verification marker on a branch and opened
+   https://github.com/arjuniyer123/arjun-iyer-portfolio/pull/2.
+4. The exact branch's Vercel preview was reviewed: all eight routes, the
+   resume PDF, and the marker.
+5. The owner disabled the old Replit publisher.
+6. The owner-approved PR merged as `c315c46`; Vercel production succeeded for
+   that commit, and the marker is live on arjuniyer.com.
 
-The existing `claude-design-handoff` preparation branch built successfully
-on Vercel, but that documentation-only preview is **not** proof of a
-Claude-authored release. Production remains unchanged and the old publisher
-has not been disabled yet.
+See `claude-design-handoff.md` for the full release record.

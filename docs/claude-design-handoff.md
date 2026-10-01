@@ -2,15 +2,26 @@
 
 ## Status
 
-Prepared for import; **not yet fully migrated**. The owner must create/import
-the Claude Design project, review it, and hand one approved change to Claude
-Code. Keep production `main` unchanged until the preview is approved.
+**Migration complete (2026-10-01).** Claude Design is the authority for
+approved visual decisions, this repository is the production-code record, and
+Vercel deploys `main`. The sections below are kept as the historical checklist;
+the rollback procedure still applies.
 
-**Update:** the owner provided the Claude Design project link and its design
-system ZIP export. Source/asset review is recorded in `claude-export-review.md`.
-The import is evidenced by that export; rendered parity and the Claude Code
-release path still need verification. The steps below remain the checklist
-for completing the handoff, not a claim that the cutover has happened.
+### Release record
+
+- Claude Design project:
+  https://claude.ai/design/p/ee090e13-f1d3-44a7-bcfd-78d0e762d3dd
+- First Claude-authored release:
+  https://github.com/arjuniyer123/arjun-iyer-portfolio/pull/2 (verification
+  marker plus the owner-approved blue palette), merged as `c315c46`.
+- Vercel production deployment for that exact commit succeeded, and
+  https://arjuniyer.com/claude-handoff-check.txt is served live.
+- The owner disabled the Replit `portfolio:publish` path before further merges.
+- Follow-ups released through the same process:
+  https://github.com/arjuniyer123/arjun-iyer-portfolio/pull/3 (TypeScript for
+  `npm run typecheck`) and
+  https://github.com/arjuniyer123/arjun-iyer-portfolio/pull/4 (per-page
+  canonical URL and `og:url`), live as of `c7bfd48`.
 
 ## Protected baseline
 

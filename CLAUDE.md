@@ -2,9 +2,9 @@
 
 ## Ownership and migration status
 
-This branch prepares a move to Claude Design. The actual Claude Design import
-and first Claude-authored release still need to be verified by the owner.
-Do not assume the migration is complete just because these instructions exist.
+The migration to Claude Design is complete (2026-10-01). The first
+Claude-authored release was verified live on arjuniyer.com, and the old Replit
+publisher has been disabled. The record is in `docs/claude-design-handoff.md`.
 
 Target workflow: Claude Design is the authority for approved visual decisions,
 this GitHub repository is the production-code record, and Vercel deploys `main`.

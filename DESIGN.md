@@ -1,7 +1,7 @@
 # Signal Portfolio design reference
 
 Import the real code from this repository rather than reconstructing the site
-from screenshots. The current design is the migration baseline, not a request
+from screenshots. The current design is the approved baseline, not a request
 for a redesign.
 
 ## Authoritative visual files
