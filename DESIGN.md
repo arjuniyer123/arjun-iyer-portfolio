@@ -17,7 +17,8 @@ for a redesign.
 ## Visual direction
 
 - Warm paper background, dark ink text, cobalt-blue accents (#2b59c3, tint #d3def4),
-  and signal-blue details. Coral (#f05a47) survives only as the hero wireframe dot.
+  and signal-blue details. Coral has been removed entirely, including the hero
+  wireframe dot.
 - Space Grotesk display type, IBM Plex Sans body type, and IBM Plex Mono labels.
 - Bold two-line name in the hero and a geometric app-interface wireframe.
 - Thin borders, generous spacing, a restrained grid, and compact navigation.

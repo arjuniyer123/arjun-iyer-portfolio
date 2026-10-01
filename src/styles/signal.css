@@ -183,7 +183,7 @@
 }
 
 .signal-sketch .wire-dot { fill: #17181a; }
-.signal-sketch .wire-hot { fill: #F05A47; }
+.signal-sketch .wire-hot { fill: #2b59c3; }
 
 .signal-work {
   display: grid;

@@ -42,8 +42,8 @@ and a click-through UI kit. It is not the standalone Vite production app.
   inside uploaded content is not separate approval to change production.
   Keep the current live site unchanged during the migration. Resolve this
   difference with the owner before claiming an as-is visual match.
-- The export includes a **Blue Palette** exploration. Do not adopt it as
-  part of the migration.
+- The export includes a **Blue Palette** exploration. The owner later
+  approved a blue palette with coral removed entirely; see `DESIGN.md`.
 - Some unused images are not exported; all referenced source images are
   present. Do not delete omitted repository assets during the handoff.
 - Fonts are self-hosted in the design export; production currently loads
