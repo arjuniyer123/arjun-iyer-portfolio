@@ -4,6 +4,11 @@ A standalone React + Vite portfolio prepared for Vercel. It includes all source 
 
 ## Source of truth
 
+**Claude Design migration is being prepared on `claude-design-handoff`.**
+Read `docs/claude-design-handoff.md` for the import steps, Claude Code handoff,
+release checks, and rollback procedure. Read `DESIGN.md` for the existing
+visual system and `CLAUDE.md` for coding guidance.
+
 Portfolio content and design are edited in `artifacts/portfolio/` in the Replit
 workspace. This standalone repository is its deployment mirror. From the
 workspace root:

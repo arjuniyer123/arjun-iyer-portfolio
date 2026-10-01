@@ -12,8 +12,6 @@ const projects = [
   {
     id: "american-national",
     title: "American National",
-    role: "Mobile App Redesign",
-    year: "2021",
     description: "Aligning the mobile experience with the desktop Client Site while ensuring customers could easily reach their local agent.",
     image: americanNationalImg,
     href: "/work/american-national"
@@ -21,8 +19,6 @@ const projects = [
   {
     id: "promo-architect",
     title: "Promo Architect",
-    role: "Enterprise Tool Redesign",
-    year: "2019",
     description: "Streamlining a complex marketing promotion planning tool used by national fast food and quick-serve chains.",
     image: promoArchitectImg,
     href: "/work/promo-architect"
@@ -30,8 +26,6 @@ const projects = [
   {
     id: "oms-account-setup",
     title: "OMS Account Setup",
-    role: "Enterprise Setup Flow",
-    year: "2018",
     description: "Translating a disjointed legacy interface into a clear, understandable flow for new users and third-party partners.",
     image: omsAccountSetupImg,
     href: "/work/oms-account-setup"
@@ -39,8 +33,6 @@ const projects = [
   {
     id: "chalo-chalo",
     title: "Chalo Chalo!",
-    role: "Disaster Relief Platform",
-    year: "2016",
     description: "Designing a social community for first responders and disaster victims to connect and coordinate aid.",
     image: chaloChaloImg,
     href: "/work/chalo-chalo"
@@ -48,8 +40,6 @@ const projects = [
   {
     id: "myhousedeals",
     title: "MyHouseDeals",
-    role: "Property Listing Redesign",
-    year: "2018",
     description: "Demystifying real estate investment with a clear, user-friendly property listing interface.",
     image: myHouseDealsImg,
     href: "/work/myhousedeals"
@@ -100,7 +90,6 @@ export default function Home() {
             {projects.map((project, index) => (
               <article className={`signal-project ${index === 0 ? "featured" : ""}`} key={project.id}>
                 <div className="signal-project-copy">
-                  <div className="signal-project-meta"><span>{project.role}</span><span>{project.year}</span></div>
                   <h3><Link href={project.href}>{project.title}</Link></h3>
                   <p>{project.description}</p>
                   <Link className="signal-case-link" href={project.href}>Read More <ArrowRight /></Link>

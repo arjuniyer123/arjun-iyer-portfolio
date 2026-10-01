@@ -57,17 +57,17 @@
   --popover-foreground: 220 6% 10%;
   --popover-border: 38 12% 75%;
 
-  --primary: 7 85% 61%;
+  --primary: 222 64% 47%;
   --primary-foreground: 40 35% 93%;
 
   /* Secondary / muted surface: slightly off the background */
-  --secondary: 11 66% 90%;
+  --secondary: 222 52% 91%;
   --secondary-foreground: 220 6% 10%;
 
-  --muted: 11 66% 90%;
+  --muted: 222 52% 91%;
   --muted-foreground: 40 4% 42%;
 
-  --accent: 11 66% 90%;
+  --accent: 222 52% 91%;
   --accent-foreground: 220 6% 10%;
 
   --destructive: 0 84% 60%;
@@ -75,7 +75,7 @@
 
   --border: 38 12% 75%;
   --input: 38 12% 75%;
-  --ring: 7 85% 61%;
+  --ring: 222 64% 47%;
 
   --app-font-sans: 'IBM Plex Sans', sans-serif;
   --app-font-serif: 'Space Grotesk', sans-serif;
@@ -97,7 +97,7 @@
 
 @layer base {
   a:focus-visible, button:focus-visible {
-    outline: 2px solid #F05A47;
+    outline: 2px solid #2b59c3;
     outline-offset: 4px;
   }
 }
