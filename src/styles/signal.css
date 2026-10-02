@@ -405,3 +405,188 @@
 
   .signal-footer-links { flex-wrap: wrap; }
 }
+/* Case studies */
+
+.signal-case-main {
+  flex: 1;
+  padding: 0 0 120px;
+}
+
+.signal-case-header {
+  position: relative;
+  padding: 88px 0 64px;
+}
+
+.signal-case-header::before {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to right, transparent 0 calc(6.25% - 1px), rgb(200 193 181 / 28%) calc(6.25% - 1px) 6.25%);
+  content: "";
+  opacity: .55;
+  pointer-events: none;
+}
+
+.signal-case-header > * {
+  position: relative;
+}
+
+.signal-case-eyebrow {
+  margin: 0 0 22px;
+  color: #2b59c3;
+  font: 500 12px "IBM Plex Mono", monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.signal-case-title {
+  margin: 0 0 28px;
+  color: #17181a;
+  font: 700 clamp(3.2rem, 8vw, 7rem)/.88 "Space Grotesk", sans-serif;
+  letter-spacing: -.075em;
+}
+
+.signal-case-summary {
+  max-width: 640px;
+  margin: 0;
+  color: #17181a;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
+
+.signal-case-hero {
+  margin: 0 12px 96px 0;
+  padding: clamp(16px, 3vw, 40px);
+  border: 2px solid #17181a;
+  background: #f4f0e8;
+  box-shadow: 12px 12px 0 #d3def4;
+}
+
+.signal-case-hero-frame {
+  overflow: hidden;
+  aspect-ratio: 15 / 7;
+  background: #d3def4;
+}
+
+.signal-case-hero-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  cursor: zoom-in;
+}
+
+.signal-case-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 23fr) minmax(0, 77fr);
+  gap: 8%;
+  padding-top: 64px;
+  border-top: 1px solid #c8c1b5;
+}
+
+.signal-case-meta {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  gap: 26px;
+  color: #17181a;
+  font-size: 14px;
+}
+
+.signal-case-meta-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #6f6c67;
+  font: 500 11px "IBM Plex Mono", monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.signal-case-body {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  max-width: 760px;
+  min-width: 0;
+}
+
+.signal-case-body.signal-case-flow {
+  display: block;
+}
+
+.signal-case-h2 {
+  color: #17181a;
+  font: 600 clamp(1.8rem, 3vw, 2.5rem)/1 "Space Grotesk", sans-serif;
+  letter-spacing: -.055em;
+}
+
+.signal-case-p {
+  color: #17181a;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.signal-case-p strong {
+  font-weight: 600;
+}
+
+.signal-case-emph {
+  font-weight: 500;
+}
+
+.signal-case-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #c8c1b5;
+  background: #f4f0e8;
+  cursor: zoom-in;
+}
+
+.signal-case-img-inset {
+  max-width: 576px;
+  margin-inline: auto;
+  padding: 16px;
+}
+
+.signal-case-img-narrow {
+  max-width: 384px;
+  margin-inline: auto;
+}
+
+.signal-case-caption {
+  margin-top: 12px;
+  color: #6f6c67;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.signal-case-caption-center {
+  text-align: center;
+}
+
+.signal-callout {
+  padding: clamp(22px, 4vw, 44px);
+  margin-right: 10px;
+  border: 2px solid #17181a;
+  background: #f4f0e8;
+  box-shadow: 10px 10px 0 #d3def4;
+}
+
+@media (max-width: 767px) {
+  .signal-case-main { padding-bottom: 85px; }
+  .signal-case-header { padding: 56px 0 44px; }
+  .signal-case-title { font-size: clamp(3rem, 15vw, 4.5rem); }
+  .signal-case-hero { margin: 0 7px 64px 0; box-shadow: 7px 7px 0 #d3def4; }
+  .signal-case-hero-frame { aspect-ratio: 4 / 3; }
+  .signal-case-layout { display: block; padding-top: 44px; }
+  .signal-case-meta {
+    flex-flow: row wrap;
+    gap: 20px 32px;
+    margin-bottom: 56px;
+  }
+  .signal-case-body { gap: 56px; }
+  .signal-case-p { font-size: 17px; }
+  .signal-callout { margin-right: 7px; box-shadow: 7px 7px 0 #d3def4; }
+}
