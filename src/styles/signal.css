@@ -213,13 +213,13 @@
 
 .signal-project {
   display: grid;
-  grid-template-columns: 42% 58%;
+  grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
   gap: 30px;
   align-items: center;
 }
 
 .signal-project.featured {
-  grid-template-columns: 38% 62%;
+  grid-template-columns: minmax(0, 38fr) minmax(0, 62fr);
 }
 
 .signal-project-copy {
@@ -294,8 +294,9 @@
   position: absolute;
   right: 12px;
   bottom: 10px;
-  color: #f4f0e8;
-  mix-blend-mode: difference;
+  padding: 4px 7px;
+  background: #f4f0e8;
+  color: #17181a;
 }
 
 .signal-project.featured .signal-project-image {
@@ -342,6 +343,11 @@
   text-transform: uppercase;
 }
 
+.signal-footer-links a {
+  display: inline-block;
+  padding-block: 6px;
+}
+
 @media (max-width: 767px) {
   .signal-nav,
   .signal-main,
@@ -351,7 +357,7 @@
 
   .signal-nav { padding: 16px 0; }
   .signal-brand img { width: 42px; height: 42px; }
-  .signal-links { gap: 13px; font-size: 10px; }
+  .signal-links { gap: 13px; font-size: 12px; }
   .signal-links .signal-contact { display: none; }
 
   .signal-hero {
