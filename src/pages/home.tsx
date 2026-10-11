@@ -2,49 +2,7 @@ import React from "react";
 import { Link } from "wouter";
 import { NavBar } from "@/components/nav-bar";
 import { Footer } from "@/components/footer";
-import americanNationalImg from "@/assets/work/american-national/app-screen-01.webp";
-import chaloChaloImg from "@/assets/work/chalo-chalo/browse-incidents-desktop.webp";
-import myHouseDealsImg from "@/assets/work/myhousedeals/property-listing-final.webp";
-import promoArchitectImg from "@/assets/work/promo-architect/dashboard.webp";
-import omsAccountSetupImg from "@/assets/work/oms/redesign-01.webp";
-
-const projects = [
-  {
-    id: "american-national",
-    title: "American National",
-    description: "Aligning the mobile experience with the desktop Client Site while ensuring customers could easily reach their local agent.",
-    image: americanNationalImg,
-    href: "/work/american-national"
-  },
-  {
-    id: "promo-architect",
-    title: "Promo Architect",
-    description: "Streamlining a complex marketing promotion planning tool used by national fast food and quick-serve chains.",
-    image: promoArchitectImg,
-    href: "/work/promo-architect"
-  },
-  {
-    id: "oms-account-setup",
-    title: "OMS Account Setup",
-    description: "Translating a disjointed legacy interface into a clear, understandable flow for new users and third-party partners.",
-    image: omsAccountSetupImg,
-    href: "/work/oms-account-setup"
-  },
-  {
-    id: "chalo-chalo",
-    title: "Chalo Chalo!",
-    description: "Designing a social community for first responders and disaster victims to connect and coordinate aid.",
-    image: chaloChaloImg,
-    href: "/work/chalo-chalo"
-  },
-  {
-    id: "myhousedeals",
-    title: "MyHouseDeals",
-    description: "Demystifying real estate investment with a clear, user-friendly property listing interface.",
-    image: myHouseDealsImg,
-    href: "/work/myhousedeals"
-  }
-];
+import { projects } from "@/lib/projects";
 
 function ArrowRight() {
   return <svg viewBox="0 0 15 15" aria-hidden="true"><path d="M8.146 3.146a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L11.293 8H2.5a.5.5 0 0 1 0-1h8.793L8.146 3.854a.5.5 0 0 1 0-.708Z" /></svg>;
@@ -96,7 +54,7 @@ export default function Home() {
                 </div>
                 <Link className="signal-project-image" href={project.href} aria-label={`View ${project.title} case study`}>
                   <img src={project.image} alt="" />
-                  <span className="signal-image-index" aria-hidden="true">0{index + 1} / 05</span>
+                  <span className="signal-image-index" aria-hidden="true">{String(index + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span>
                 </Link>
               </article>
             ))}

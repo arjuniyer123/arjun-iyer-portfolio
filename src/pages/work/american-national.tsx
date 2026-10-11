@@ -1,6 +1,7 @@
 import React from "react";
 import { NavBar } from "@/components/nav-bar";
 import { Footer } from "@/components/footer";
+import { CaseNav } from "@/components/case-nav";
 import { useLightbox } from "@/components/lightbox";
 import homeScreen from "@/assets/work/american-national/app-screen-01.webp";
 import screen03 from "@/assets/work/american-national/app-screen-03.webp";
@@ -121,6 +122,7 @@ export default function AmericanNational() {
             </div>
           </div>
         </div>
+        <CaseNav currentId="american-national" />
       </main>
       
       <Footer />

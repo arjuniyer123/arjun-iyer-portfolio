@@ -27,6 +27,10 @@ for a redesign.
 - Do not restore removed homepage labels, project-name index numbers, or the
   role/year meta line above project names (removed by owner-approved change).
 - Keep the AI initials mark as the favicon and home control.
+- Case studies end with previous/next links (`src/components/case-nav.tsx`),
+  ordered by the homepage project list in `src/lib/projects.ts`.
+- Each case study has its own social preview image in `public/og/`, generated
+  from its hero imagery by `scripts/make-og-images.py`.
 
 Use exact values from the CSS files, not approximate colors from screenshots.
 Import the complete styling and shared components, not only the homepage.

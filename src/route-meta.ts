@@ -12,7 +12,12 @@ export interface RouteMeta {
   title: string;
   description: string;
   ogType: string;
+  /** Absolute social preview image URL. Defaults to DEFAULT_OG_IMAGE. */
+  ogImage?: string;
 }
+
+export const SITE_URL = 'https://arjuniyer.com';
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 export const routeMeta: Record<string, RouteMeta> = {
   '/': {
@@ -38,30 +43,35 @@ export const routeMeta: Record<string, RouteMeta> = {
     description:
       'Aligning the mobile app experience with the desktop portal for American National\u2019s policyholders. A mobile app redesign case study by Arjun Iyer.',
     ogType: 'article',
+    ogImage: `${SITE_URL}/og/american-national.jpg`,
   },
   '/work/chalo-chalo': {
     title: 'Chalo Chalo! — Arjun Iyer',
     description:
       'A community-driven platform for disaster relief and first responder coordination. UX design case study by Arjun Iyer.',
     ogType: 'article',
+    ogImage: `${SITE_URL}/og/chalo-chalo.jpg`,
   },
   '/work/myhousedeals': {
     title: 'MyHouseDeals — Arjun Iyer',
     description:
       'Demystifying property listings to connect investors with actionable financing guidance. Real estate investment platform case study by Arjun Iyer.',
     ogType: 'article',
+    ogImage: `${SITE_URL}/og/myhousedeals.jpg`,
   },
   '/work/promo-architect': {
     title: 'Promo Architect — Arjun Iyer',
     description:
       'Redesigning the enterprise promotion planning tool for national retail chains. Enterprise tool redesign case study by Arjun Iyer.',
     ogType: 'article',
+    ogImage: `${SITE_URL}/og/promo-architect.jpg`,
   },
   '/work/oms-account-setup': {
     title: 'OMS Account Setup — Arjun Iyer',
     description:
       'Translating a complex, disjointed legacy process into an intuitive enterprise setup flow. Enterprise UX case study by Arjun Iyer.',
     ogType: 'article',
+    ogImage: `${SITE_URL}/og/oms-account-setup.jpg`,
   },
 };
 
@@ -74,7 +84,6 @@ export function getRouteMeta(rawPath: string): RouteMeta {
   return routeMeta[normalizePath(rawPath)] ?? routeMeta['/'];
 }
 
-export const SITE_URL = 'https://arjuniyer.com';
 
 /**
  * Return the absolute canonical URL for a given URL path, in the form Vercel
@@ -85,6 +94,11 @@ export function getCanonicalUrl(rawPath: string): string {
   const normalized = normalizePath(rawPath);
   if (normalized === '/' || !routeMeta[normalized]) return `${SITE_URL}/`;
   return `${SITE_URL}${normalized}`;
+}
+
+/** Return the absolute social preview image URL for a given URL path. */
+export function getOgImage(rawPath: string): string {
+  return getRouteMeta(rawPath).ogImage ?? DEFAULT_OG_IMAGE;
 }
 
 function normalizePath(rawPath: string): string {

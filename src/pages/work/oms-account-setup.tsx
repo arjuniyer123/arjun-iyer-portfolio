@@ -1,6 +1,7 @@
 import React from "react";
 import { NavBar } from "@/components/nav-bar";
 import { Footer } from "@/components/footer";
+import { CaseNav } from "@/components/case-nav";
 import { useLightbox } from "@/components/lightbox";
 import redesign01Img from "@/assets/work/oms/redesign-01.webp";
 import legacyCatalogConfigImg from "@/assets/work/oms/legacy-catalog-config.webp";
@@ -118,6 +119,8 @@ export default function OmsAccountSetup() {
             </section>
           </div>
         </div>
+
+        <CaseNav currentId="oms-account-setup" />
 
       </main>
       
