@@ -53,7 +53,9 @@ export default function Home() {
                   <Link className="signal-case-link" href={project.href}>Read More <ArrowRight /></Link>
                 </div>
                 <Link className="signal-project-image" href={project.href} aria-label={`View ${project.title} case study`}>
-                  <img src={project.image} alt="" />
+                  {project.image
+                    ? <img src={project.image} alt="" />
+                    : <span className="signal-case-placeholder"><span>Image coming soon</span></span>}
                   <span className="signal-image-index" aria-hidden="true">{String(index + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span>
                 </Link>
               </article>

@@ -38,6 +38,12 @@ export const routeMeta: Record<string, RouteMeta> = {
       'Work history and skills of Arjun Iyer, UX designer and product strategist.',
     ogType: 'website',
   },
+  '/work/empyrean': {
+    title: 'Empyrean — Arjun Iyer',
+    description:
+      'Designing the employee benefits enrollment experience at Empyrean. A benefits platform case study by Arjun Iyer.',
+    ogType: 'article',
+  },
   '/work/american-national': {
     title: 'AN Mobile — Arjun Iyer',
     description:
