@@ -50,11 +50,12 @@ function escapeAttr(str) {
 /**
  * Inject per-route <head> metadata and SSR-rendered body into a template.
  */
-function buildRouteHtml(template, meta, canonicalUrl, renderedBody) {
+function buildRouteHtml(template, meta, canonicalUrl, ogImageUrl, renderedBody) {
   const title = escapeAttr(meta.title);
   const desc  = escapeAttr(meta.description);
   const og    = escapeAttr(meta.ogType);
   const url   = escapeAttr(canonicalUrl);
+  const image = escapeAttr(ogImageUrl);
 
   return template
     .replace(/<title>[^<]*<\/title>/,
@@ -75,6 +76,10 @@ function buildRouteHtml(template, meta, canonicalUrl, renderedBody) {
       `<meta name="twitter:title" content="${title}" />`)
     .replace(/<meta\s+name="twitter:description"[^>]*\/>/,
       `<meta name="twitter:description" content="${desc}" />`)
+    .replace(/<meta\s+property="og:image"[^>]*\/>/,
+      `<meta property="og:image" content="${image}" />`)
+    .replace(/<meta\s+name="twitter:image"[^>]*\/>/,
+      `<meta name="twitter:image" content="${image}" />`)
     .replace(/<div id="root"><\/div>/,
       `<div id="root">${renderedBody}</div>`);
 }
@@ -126,10 +131,10 @@ console.log('[prerender] SSR bundle built.');
 const ssrBundle = await import(
   /* @vite-ignore */ path.join(serverDir, 'entry-server.mjs')
 );
-const { render, routeMeta, getCanonicalUrl } = ssrBundle;
+const { render, routeMeta, getCanonicalUrl, getOgImage } = ssrBundle;
 
-if (!render || !routeMeta || !getCanonicalUrl) {
-  console.error('[prerender] ERROR: SSR bundle did not export render(), routeMeta, or getCanonicalUrl().');
+if (!render || !routeMeta || !getCanonicalUrl || !getOgImage) {
+  console.error('[prerender] ERROR: SSR bundle did not export render(), routeMeta, getCanonicalUrl(), or getOgImage().');
   process.exit(1);
 }
 
@@ -165,7 +170,7 @@ for (const [routePath, meta] of Object.entries(routeMeta)) {
     failedRoutes.push(routePath);
   }
 
-  const html = buildRouteHtml(template, meta, getCanonicalUrl(routePath), renderedBody);
+  const html = buildRouteHtml(template, meta, getCanonicalUrl(routePath), getOgImage(routePath), renderedBody);
 
   if (routePath === '/') {
     fs.writeFileSync(indexPath, html, 'utf8');
@@ -213,6 +218,17 @@ for (const [routePath, meta] of Object.entries(routeMeta)) {
   }
   if (!html.includes(`<meta property="og:url" content="${escapedUrl}" />`)) {
     verifyErrors.push(`${routePath}: og:url meta not found or incorrect.`);
+  }
+
+  // Verification 2b: og:image points at this route's preview image, and that
+  // file exists in the build output.
+  const ogImageUrl = getOgImage(routePath);
+  if (!html.includes(`<meta property="og:image" content="${escapeAttr(ogImageUrl)}" />`)) {
+    verifyErrors.push(`${routePath}: og:image meta not found or incorrect.`);
+  }
+  const ogImageFile = path.join(distDir, ...new URL(ogImageUrl).pathname.split('/').filter(Boolean));
+  if (!fs.existsSync(ogImageFile)) {
+    verifyErrors.push(`${routePath}: og:image file missing from build (${ogImageFile}).`);
   }
 
   // Verification 3: <div id="root"> is not empty

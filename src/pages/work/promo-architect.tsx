@@ -1,6 +1,7 @@
 import React from "react";
 import { NavBar } from "@/components/nav-bar";
 import { Footer } from "@/components/footer";
+import { CaseNav } from "@/components/case-nav";
 import { useLightbox } from "@/components/lightbox";
 import dashboardImg from "@/assets/work/promo-architect/dashboard.webp";
 import styleGuideAuditImg from "@/assets/work/promo-architect/style-guide-audit.webp";
@@ -58,7 +59,7 @@ export default function PromoArchitect() {
             <div className="signal-callout">
               <h2 className="signal-case-h2 mb-4">Pointsmith</h2>
               <p className="signal-case-p">
-                <strong>Pointsmith</strong> is a retail marketing company that sells marketing collateral to fast food restaurants, quick serve restaurants, and gas stations. I was hired there to redesign the Promo Architect, which is what their clients use to order marketing collateral between all their various locations. The application had was undergoing a major redesign which would change the look as well as the functionality of the whole <strong>Promotion</strong> creation process.
+                <strong>Pointsmith</strong> is a retail marketing company that sells marketing collateral to fast food restaurants, quick serve restaurants, and gas stations. I was hired there to redesign the Promo Architect, which is what their clients use to order marketing collateral between all their various locations. The application was undergoing a major redesign which would change the look as well as the functionality of the whole <strong>Promotion</strong> creation process.
               </p>
             </div>
 
@@ -102,6 +103,8 @@ export default function PromoArchitect() {
             </div>
           </div>
         </div>
+
+        <CaseNav currentId="promo-architect" />
 
       </main>
       

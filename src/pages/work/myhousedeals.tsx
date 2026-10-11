@@ -1,6 +1,7 @@
 import React from "react";
 import { NavBar } from "@/components/nav-bar";
 import { Footer } from "@/components/footer";
+import { CaseNav } from "@/components/case-nav";
 import { useLightbox } from "@/components/lightbox";
 import finalListingImg from "@/assets/work/myhousedeals/property-listing-final.webp";
 import moodboardImg from "@/assets/work/myhousedeals/moodboard.webp";
@@ -93,6 +94,7 @@ export default function MyHouseDeals() {
           </div>
           
         </div>
+        <CaseNav currentId="myhousedeals" />
       </main>
       
       <Footer />

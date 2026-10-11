@@ -1,6 +1,7 @@
 import React from "react";
 import { NavBar } from "@/components/nav-bar";
 import { Footer } from "@/components/footer";
+import { CaseNav } from "@/components/case-nav";
 import { useLightbox } from "@/components/lightbox";
 import browseIncidentsImg from "@/assets/work/chalo-chalo/browse-incidents-desktop.webp";
 import matchesConceptImg from "@/assets/work/chalo-chalo/matches-concept.webp";
@@ -149,6 +150,7 @@ export default function ChaloChalo() {
             </section>
           </div>
         </div>
+        <CaseNav currentId="chalo-chalo" />
       </main>
       
       <Footer />

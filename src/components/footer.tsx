@@ -4,7 +4,7 @@ export function Footer() {
     <footer className="signal-footer">
       <div>
         <a className="signal-footer-cta" href="mailto:arjuniyer123@gmail.com">
-          Reach Arjun <span aria-hidden="true">↗</span>
+          Get in touch <span aria-hidden="true">↗</span>
         </a>
       </div>
       <div className="signal-footer-side">

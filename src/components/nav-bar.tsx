@@ -56,7 +56,7 @@ export function NavBar() {
           );
         })}
         <a className="signal-contact" href="mailto:arjuniyer123@gmail.com">
-          Contact Arjun <span aria-hidden="true">↗</span>
+          Contact <span aria-hidden="true">↗</span>
         </a>
       </nav>
     </header>
