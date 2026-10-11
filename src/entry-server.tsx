@@ -23,6 +23,7 @@ export { routeMeta, getCanonicalUrl, getOgImage } from './route-meta';
 import Home from './pages/home';
 import About from './pages/about';
 import Resume from './pages/resume';
+import Empyrean from './pages/work/empyrean';
 import AmericanNational from './pages/work/american-national';
 import ChaloChalo from './pages/work/chalo-chalo';
 import MyHouseDeals from './pages/work/myhousedeals';
@@ -33,6 +34,7 @@ const ROUTE_COMPONENTS: Record<string, React.ComponentType> = {
   '/': Home,
   '/about': About,
   '/resume': Resume,
+  '/work/empyrean': Empyrean,
   '/work/american-national': AmericanNational,
   '/work/chalo-chalo': ChaloChalo,
   '/work/myhousedeals': MyHouseDeals,

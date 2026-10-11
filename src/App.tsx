@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import Home from '@/pages/home';
 import About from '@/pages/about';
 import Resume from '@/pages/resume';
+import Empyrean from '@/pages/work/empyrean';
 import AmericanNational from '@/pages/work/american-national';
 import ChaloChalo from '@/pages/work/chalo-chalo';
 import MyHouseDeals from '@/pages/work/myhousedeals';
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/resume" component={Resume} />
+      <Route path="/work/empyrean" component={Empyrean} />
       <Route path="/work/american-national" component={AmericanNational} />
       <Route path="/work/chalo-chalo" component={ChaloChalo} />
       <Route path="/work/myhousedeals" component={MyHouseDeals} />

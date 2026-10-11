@@ -8,7 +8,8 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  image: string;
+  /** Homepage card image. Omit to show a placeholder frame. */
+  image?: string;
   href: string;
 }
 
@@ -17,6 +18,12 @@ export interface Project {
  * previous/next navigation at the end of each case study.
  */
 export const projects: Project[] = [
+  {
+    id: "empyrean",
+    title: "Empyrean",
+    description: "[Placeholder] Making benefits enrollment clear for employees choosing coverage for themselves and their families.",
+    href: "/work/empyrean",
+  },
   {
     id: "american-national",
     title: "American National",
